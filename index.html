@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Catalog</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="assets/main.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="flex justify-between items-center">
+                <h1 class="text-3xl font-bold text-gray-900">Service Catalog</h1>
+                <div class="relative w-64">
+                    <input type="text" placeholder="Search services..." 
+                           class="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="mb-8">
+            <div class="relative rounded-md shadow-sm search-container">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <i class="fas fa-search text-gray-400"></i>
+                </div>
+                <input type="text" class="focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 pr-12 py-3 border-gray-300 rounded-md" placeholder="Search services...">
+                <div class="absolute inset-y-0 right-0 flex items-center">
+                    <button class="px-4 py-2 bg-blue-500 text-white rounded-r-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 search-button">
+                        Search
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Security Card -->
+            <div class="bg-white overflow-hidden shadow rounded-lg service-card">
+                <div class="px-4 py-5 sm:p-6">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 bg-blue-500 rounded-md p-3">
+                            <i class="fas fa-shield-alt text-white text-2xl"></i>
+                        </div>
+                        <div class="ml-5 w-0 flex-1">
+                            <h3 class="text-lg font-medium text-gray-900">Security</h3>
+                            <p class="mt-1 text-sm text-gray-500">Comprehensive cybersecurity solutions</p>
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                        <a href="services/security.html" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                            Explore Services
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Network Card -->
+            <div class="bg-white overflow-hidden shadow rounded-lg service-card">
+                <div class="px-4 py-5 sm:p-6">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 bg-green-500 rounded-md p-3">
+                            <i class="fas fa-network-wired text-white text-2xl"></i>
+                        </div>
+                        <div class="ml-5 w-0 flex-1">
+                            <h3 class="text-lg font-medium text-gray-900">Smart & Network</h3>
+                            <p class="mt-1 text-sm text-gray-500">Advanced networking solutions</p>
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                        <a href="services/network.html" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                            Explore Services
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cloud Card -->
+            <div class="bg-white overflow-hidden shadow rounded-lg service-card">
+                <div class="px-4 py-5 sm:p-6">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 bg-purple-500 rounded-md p-3">
+                            <i class="fas fa-cloud text-white text-2xl"></i>
+                        </div>
+                        <div class="ml-5 w-0 flex-1">
+                            <h3 class="text-lg font-medium text-gray-900">Cloud</h3>
+                            <p class="mt-1 text-sm text-gray-500">Scalable cloud solutions</p>
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                        <a href="services/cloud.html" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
+                            Explore Services
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Consulting Card -->
+            <div class="bg-white overflow-hidden shadow rounded-lg service-card">
+                <div class="px-4 py-5 sm:p-6">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 bg-yellow-500 rounded-md p-3">
+                            <i class="fas fa-handshake text-white text-2xl"></i>
+                        </div>
+                        <div class="ml-5 w-0 flex-1">
+                            <h3 class="text-lg font-medium text-gray-900">Consulting Services</h3>
+                            <p class="mt-1 text-sm text-gray-500">Expert guidance and support</p>
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                        <a href="services/consulting.html" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-yellow-600 hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500">
+                            Explore Services
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AWP Card -->
+            <div class="bg-white overflow-hidden shadow rounded-lg service-card">
+                <div class="px-4 py-5 sm:p-6">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 bg-red-500 rounded-md p-3">
+                            <i class="fas fa-robot text-white text-2xl"></i>
+                        </div>
+                        <div class="ml-5 w-0 flex-1">
+                            <h3 class="text-lg font-medium text-gray-900">AWP Services</h3>
+                            <p class="mt-1 text-sm text-gray-500">Automation, Workflow & Process</p>
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                        <a href="services/awp.html" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                            Explore Services
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- More category cards will be added here -->
+        </div>
+    </main>
+
+    <footer class="bg-white border-t border-gray-200 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <p class="text-center text-gray-500">© 2023 Service Catalog. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
