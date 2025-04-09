@@ -2,35 +2,35 @@ document.addEventListener('DOMContentLoaded', function() {
     // Search functionality
     const searchInput = document.querySelector('input[type="text"]');
     const searchButton = document.querySelector('.search-button');
+    const serviceCards = document.querySelectorAll('.service-card');
     
     if (searchInput) {
+        function performSearch() {
+            const searchTerm = searchInput.value.toLowerCase().trim();
+            serviceCards.forEach(card => {
+                const cardText = card.textContent.toLowerCase();
+                if (searchTerm === '' || cardText.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
         // Search on input
-        searchInput.addEventListener('input', function(e) {
-            const searchTerm = e.target.value.toLowerCase();
-            if (searchTerm.length > 2) {
-                highlightMatches(searchTerm);
-            } else {
-                removeHighlights();
-            }
+        searchInput.addEventListener('input', function() {
+            performSearch();
         });
 
         // Search on button click
         if (searchButton) {
-            searchButton.addEventListener('click', function() {
-                const searchTerm = searchInput.value.toLowerCase();
-                if (searchTerm.length > 0) {
-                    highlightMatches(searchTerm);
-                }
-            });
+            searchButton.addEventListener('click', performSearch);
         }
 
         // Search on Enter key
         searchInput.addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
-                const searchTerm = searchInput.value.toLowerCase();
-                if (searchTerm.length > 0) {
-                    highlightMatches(searchTerm);
-                }
+                performSearch();
             }
         });
     }
