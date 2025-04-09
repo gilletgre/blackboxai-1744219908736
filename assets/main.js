@@ -1,58 +1,69 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Search functionality
-    const searchInput = document.querySelector('input[type="text"]');
-    const searchButton = document.querySelector('.search-button');
-    const serviceCards = document.querySelectorAll('.service-card');
-    
-    if (searchInput) {
-        function performSearch() {
+    // Initialize video autoplay
+    const initVideo = () => {
+        const video = document.querySelector('video');
+        if (video) {
+            video.playsInline = true;
+            video.muted = true;
+            
+            const playPromise = video.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(error => {
+                    video.controls = true;
+                });
+            }
+        }
+    };
+
+    // Enhanced search functionality
+    const initSearch = () => {
+        const searchInput = document.querySelector('input[type="text"]');
+        const searchButton = document.querySelector('.search-button');
+        const serviceCards = document.querySelectorAll('.service-card');
+        
+        if (!searchInput) return;
+
+        const performSearch = () => {
             const searchTerm = searchInput.value.toLowerCase().trim();
+            
             serviceCards.forEach(card => {
-                const cardText = card.textContent.toLowerCase();
-                if (searchTerm === '' || cardText.includes(searchTerm)) {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const description = card.querySelector('p').textContent.toLowerCase();
+                
+                if (searchTerm === '' || title.includes(searchTerm) || description.includes(searchTerm)) {
                     card.style.display = 'block';
+                    highlightMatches(card, searchTerm);
                 } else {
                     card.style.display = 'none';
                 }
             });
-        }
+        };
 
-        // Search on input
-        searchInput.addEventListener('input', function() {
-            performSearch();
+        const highlightMatches = (card, term) => {
+            if (!term) return;
+            
+            const elements = card.querySelectorAll('h3, p');
+            elements.forEach(el => {
+                const text = el.textContent;
+                const regex = new RegExp(term, 'gi');
+                el.innerHTML = text.replace(regex, match => 
+                    `<span class="bg-yellow-200 rounded px-1">${match}</span>`
+                );
+            });
+        };
+
+        // Event listeners
+        searchInput.addEventListener('input', performSearch);
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') performSearch();
         });
-
-        // Search on button click
+        
         if (searchButton) {
             searchButton.addEventListener('click', performSearch);
         }
+    };
 
-        // Search on Enter key
-        searchInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                performSearch();
-            }
-        });
-    }
-
-    function highlightMatches(term) {
-        removeHighlights();
-        const serviceItems = document.querySelectorAll('.service-item h3, .service-item p');
-        serviceItems.forEach(item => {
-            const text = item.textContent;
-            const regex = new RegExp(term, 'gi');
-            const newText = text.replace(regex, match => 
-                `<span class="search-highlight">${match}</span>`
-            );
-            if (newText !== text) {
-                item.innerHTML = newText;
-            }
-        });
-    }
-
-    function removeHighlights() {
-        document.querySelectorAll('.search-highlight').forEach(highlight => {
-            highlight.outerHTML = highlight.innerHTML;
-        });
-    }
+    // Initialize all features
+    initVideo();
+    initSearch();
 });
