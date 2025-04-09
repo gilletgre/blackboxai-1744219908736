@@ -30,6 +30,22 @@
     </header>
 
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Hero Video Sections -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div class="rounded-xl overflow-hidden shadow-lg">
+                <video autoplay loop muted playsinline class="w-full">
+                    <source src="https://ui.com/microsite/static/media/section-3.bc64f7ed.mp4" type="video/mp4">
+                    Your browser does not support HTML5 video.
+                </video>
+            </div>
+            <div class="rounded-xl overflow-hidden shadow-lg">
+                <video autoplay loop muted playsinline class="w-full">
+                    <source src="https://ui.com/microsite/static/media/ai-port-introduction.e707c2b6.mp4" type="video/mp4">
+                    Your browser does not support HTML5 video.
+                </video>
+            </div>
+        </div>
+        
         <div class="mb-8">
             <div class="relative rounded-md shadow-sm search-container">
                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -150,7 +166,12 @@
 
     <footer class="bg-white border-t border-gray-200 mt-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-            <p class="text-center text-gray-500">© 2023 Service Catalog. All rights reserved.</p>
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 mb-4 md:mb-0">© 2023 Service Catalog. All rights reserved.</p>
+                <a href="services/partners.html" class="text-blue-600 hover:text-blue-800 font-medium">
+                    Our Partners <i class="fas fa-arrow-right ml-1"></i>
+                </a>
+            </div>
         </div>
     </footer>
 </body>
